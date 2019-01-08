@@ -1,18 +1,27 @@
 <html>
 <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
 <META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 22 Jul 2002 11:12:01 GMT">
+
 <head>
   <link rel="stylesheet" type="text/css" href="./src/css/app.css" />
 </head>
 
 <body ng-app="myApp" ng-controller="mathdemoController" ng-cloak>
-    <div class="question">What is {{firstnumber}} + {{secondnumber}}?</div>
-    <input ng-model="answer"></input>
-    <div class="evaluation" ng-if="answer!='???'">
-    {{evaluation}}
-    </div>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
-<script src="./src/js/app.js"></script>
+    <!-- For use of the html select element in angularjs see -->
+    <!--  https://stackoverflow.com/questions/45010863/using-select-and-option-in-angularjs -->
+    <select ng-model="selectedProblem" ng-change="setCurrentProblem(selectedProblem);" class="form-control">
+  <option value="">- select a problem type -</option>
+  <option ng-repeat="item in mathDemos.problems" ng-value="item.name">{{item.name}}</option>
+</select>
+  <div class="prob">What is {{currentProblem.display}}?</div>
+  <input ng-model="userAnswer" placeholder="???"></input>
+  <button ng-click="submitAnswer">Submit</button>
+  <div class="feedback" ng-if="messages.feedback">
+    {{msg.feedback}}
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+  <script src="./src/js/app.js"></script>
 
 </body>
+
 </html>
