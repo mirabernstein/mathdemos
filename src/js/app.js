@@ -7,42 +7,71 @@ myApp.controller('mathdemoController', ['$scope', function ($scope) {
      The problem object (e.g. 'addition' and 'multiplication' below could be made into a Class. 
      */
 
-  var defaultProblemName = 'addition';
+  var DEFAULT = {
+    'variables': {
+      'a': 21,
+      'b': 7
+    },
+    'problemName': 'addition',
+    'answer': null,
+    'message': '',
+    'pageTitle': 'Math Demos',
+    'instructions': 'Select type of problem, enter an answer and click "Submit"'
+  };
+
+  $scope.appVersion = '1.0.0';
+
+  $scope.current = {};
 
   $scope.setCurrentProblem = function (problemName) {
-    $scope.currentProblem = $scope.mathDemos.getProblem(problemName);
+    clearAll();
+    $scope.current.problem = $scope.mathDemos.getProblem(problemName);
+  };
+
+  $scope.setCurrentVariables = function (variables) {
+    $scope.current.variables = variables;
+  };
+
+  $scope.setCurrentMessage = function (message) {
+    $scope.current.message = message;
+  };
+
+  $scope.setCurrentAnswer = function (answer) {
+    $scope.current.answer = answer;
   };
 
   var clearAll = function () {
-    $scope.setCurrentProblem(defaultProblemName);
     $scope.userResponse = '';
-    $scope.feedback = "Enter your answer and click 'Submit'";
+    $scope.setCurrentVariables(DEFAULT.variables);
+    $scope.setCurrentMessage(DEFAULT.message);
+    $scope.setCurrentAnswer(DEFAULT.answer);
+    $scope.instructions = {
+      'show': true,
+      'text': DEFAULT.instructions
+    };
   };
 
-  var getUserError = function (answer, userResponse) {
-    return Math.abs(answer - userResponse);
+  var getUserError = function (answer, userResponseFloat) {
+    return Math.abs(answer - userResponseFloat);
   };
   var addition = {
     'name': 'addition',
-    'probDisplay': function (a, b) {
-      return a.toString() + " + " + b.toString();
+    'problemDisplay': function (variables) {
+      return "What do you get when you add " + variables.a.toString() + " and " + variables.b.toString() + "?";
     },
-    'mainfunction': function (a, b, userResponse) {
-      var probFun = function (a, b) {
+    'mainFunction': function (variables, userResponse) {
+      var problemFunction = function (a, b) {
         return a + b;
       };
-      var answer = probFun(a, b);
-      var userError = getUserError(answer, userResponse);
+      var answer = problemFunction(variables.a, variables.b);
+      var userError = getUserError(answer, parseFloat(userResponse));
       var msg = '';
-      switch (userError) {
-        case userError === 0:
-          msg = 'Great job!';
-          break;
-        case userError / answer <= 0.10:
-          msg = 'Close, try again!';
-          break;
-        case userError / answer > 0.10:
-          msg = 'Way off! Try again!';
+      if (userError === 0) {
+        msg = 'Great job!';
+      } else if (userError / answer <= 0.10) {
+        msg = 'Close, try again!';
+      } else if (userError / answer > 0.10) {
+        msg = 'Way off! Try again!';
       }
       var respObject = {
         'answer': answer,
@@ -54,23 +83,21 @@ myApp.controller('mathdemoController', ['$scope', function ($scope) {
 
   var multiplication = {
     'name': 'multiplication',
-    'probDisplay': function (a, b) {
-      return a.toString() + " * " + b.toString();
+    'problemDisplay': function (variables) {
+      return "What is " + variables.a.toString() + " * " + variables.b.toString() + "?";
     },
-    'mainfunction': function (a, b, userResponse) {
-      var probFun = function (a, b) {
+    'mainFunction': function (variables, userResponse) {
+      var problemFunction = function (a, b) {
         return a * b;
       };
-      var answer = probFun(a, b);
-      switch (userResponse) {
-        case userResponse === answer:
-          msg = 'Correct!!';
-          break;
-        case ((userResponse % a) * (userResponse % b) === 0):
-          msg = 'At least your answer is a multiple of one of the numbers. Try again.';
-          break;
-        default:
-          msg = 'Your answer is not even divisible by one of the numbers. Try again.';
+      var answer = problemFunction(variables.a, variables.b);
+      var msg = '';
+      if (parseFloat(userResponse) === answer) {
+        msg = 'Correct!!';
+      } else if ((parseFloat(userResponse) % variables.a) * (parseFloat(userResponse) % variables.b) === 0) {
+        msg = 'At least your answer is a multiple of one of the numbers. Try again.';
+      } else {
+        msg = 'Your answer is not even divisible by one of the numbers. Try again.';
       }
       var respObject = {
         'answer': answer,
@@ -81,22 +108,25 @@ myApp.controller('mathdemoController', ['$scope', function ($scope) {
   };
 
   $scope.mathDemos = {
-    'defaults': {
-      'a': 7,
-      'b': 20
+    'display': {
+      'pageTitle': DEFAULT.pageTitle
     },
-    'getProblem': function(problemName){
+    'getProblem': function (problemName) {
       return this.problems[problemName];
     },
-    'problems': {'addition': addition, 'multiplication': multiplication}
+    'problems': {
+      'addition': addition,
+      'multiplication': multiplication
+    },
+    'submitAnswer': function () {
+      var problemResult = $scope.current.problem.mainFunction($scope.current.variables, $scope.userResponse);
+      $scope.setCurrentAnswer(problemResult.answer);
+      $scope.setCurrentMessage(problemResult.message);
+    }
   };
 
-  $scope.display = {
-
-  };
 
   // Initiate application variables
-  clearAll();
-
+  $scope.setCurrentProblem(DEFAULT.problemName);
 
 }]);

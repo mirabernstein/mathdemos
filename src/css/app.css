@@ -1,7 +1,30 @@
-.evaluation{
-  font:17pt;
-}
-    
-[ng\:cloak], [ng-cloak], .ng-cloak {
+[ng\:cloak],
+[ng-cloak],
+.ng-cloak {
   display: none !important;
+}
+
+body {
+  padding: 15px;
+}
+
+select {
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+}
+
+.version{
+  margin: 25px;
+  font-size: 20px !important;
+}
+
+.instructions{
+  font-style: italic;
+}
+.problem{
+  margin-bottom: 20px;
+}
+
+.problemLabel, .userResponseLabel, .currentMessageLabel{
+  font-weight: bold;
 }
