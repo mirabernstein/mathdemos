@@ -1,0 +1,18 @@
+<html>
+<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+<META HTTP-EQUIV="EXPIRES" CONTENT="Mon, 22 Jul 2002 11:12:01 GMT">
+<head>
+  <link rel="stylesheet" type="text/css" href="./src/css/app.css" />
+</head>
+
+<body ng-app="myApp" ng-controller="mathdemoController" ng-cloak>
+    <div class="question">What is {{firstnumber}} + {{secondnumber}}?</div>
+    <input ng-model="answer"></input>
+    <div class="evaluation" ng-if="answer!='???'">
+    {{evaluation}}
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script src="./src/js/app.js"></script>
+
+</body>
+</html>
