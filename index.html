@@ -16,7 +16,8 @@
   <div class="instructions" ng-show="instructions.show">{{instructions.text}}</div>
   <!-- For use of the html select element in angularjs see -->
   <!--  https://stackoverflow.com/questions/45010863/using-select-and-option-in-angularjs -->
-  <select class="w-25" ng-model="selectedProblem" ng-init="selectedProblem = current.problem.name" ng-change="setCurrentProblem(selectedProblem);" class="form-control">
+  <select class="w-25" ng-model="selectedProblem" ng-init="selectedProblem = current.problem.name" ng-change="setCurrentProblem(selectedProblem);"
+    class="form-control">
     <option ng-repeat="item in mathDemos.problems" ng-value="item.name">{{item.name}}</option>
   </select>
   <!-- Table styling is provided by the Bootstrap 4 css linked above, with class names-->
@@ -47,7 +48,7 @@
     <button type="submit" class="btn btn-primary" ng-click="mathDemos.submitAnswer()">Submit</button>
   </form>
   <div class="message" ng-if="current.message">
-    <span class="currentMessageLabel">Message:</span> 
+    <span class="currentMessageLabel">Message:</span>
     <span class="currentMessage">{{current.message}}</span>
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>

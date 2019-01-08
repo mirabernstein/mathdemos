@@ -13,18 +13,21 @@ select {
   margin-bottom: 20px !important;
 }
 
-.version{
+.version {
   margin: 25px;
   font-size: 20px !important;
 }
 
-.instructions{
+.instructions {
   font-style: italic;
 }
-.problem{
+
+.problem {
   margin-bottom: 20px;
 }
 
-.problemLabel, .userResponseLabel, .currentMessageLabel{
+.problemLabel,
+.userResponseLabel,
+.currentMessageLabel {
   font-weight: bold;
 }
