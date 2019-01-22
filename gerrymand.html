@@ -43,35 +43,35 @@
 <body ng-app="gerrymandApp" ng-controller="gerrymandController" ng-cloak>
     <h2>Gerrymandering Demo <span class="appVersion">v.{{appVersion}}</span></h2>
     <h3>My Districts</h3>
-    <table id="districtinputtable">
+    <table id="districtinputtable" >
         <tr>
-            <td id="cell00"><input type="number" ng-model="districts.val.v00"></td>
-            <td id="cell01"><input type="number" ng-model="districts.val.v01"></td>
-            <td id="cell02"><input type="number" ng-model="districts.val.v02"></td>
+            <td id="cell00"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v00"></td>
+            <td id="cell01"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v01"></td>
+            <td id="cell02"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v02"></td>
         </tr>
         <tr>
-            <td id="cell10"><input type="number" ng-model="districts.val.v10"></td>
-            <td id="cell11"><input type="number" ng-model="districts.val.v11"></td>
-            <td id="cell12"><input type="number" ng-model="districts.val.v12"></td>
+            <td id="cell10"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v10"></td>
+            <td id="cell11"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v11"></td>
+            <td id="cell12"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v12"></td>
         <tr>
-            <td id="cell20"><input type="number" ng-model="districts.val.v20"></td>
-            <td id="cell21"><input type="number" ng-model="districts.val.v21"></td>
-            <td id="cell22"><input type="number" ng-model="districts.val.v22"></td>
+            <td id="cell20"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v20"></td>
+            <td id="cell21"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v21"></td>
+            <td id="cell22"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v22"></td>
         </tr>
         <tr>
-            <td id="cell30"><input type="number" ng-model="districts.val.v30"></td>
-            <td id="cell31"><input type="number" ng-model="districts.val.v31"></td>
-            <td id="cell32"><input type="number" ng-model="districts.val.v32"></td>
+            <td id="cell30"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v30"></td>
+            <td id="cell31"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v31"></td>
+            <td id="cell32"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v32"></td>
         </tr>
         <tr>
-            <td id="cell40"><input type="number" ng-model="districts.val.v40"></td>
-            <td id="cell41"><input type="number" ng-model="districts.val.v41"></td>
-            <td id="cell42"><input type="number" ng-model="districts.val.v42"></td>
+            <td id="cell40"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v40"></td>
+            <td id="cell41"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v41"></td>
+            <td id="cell42"><input min="{{inputMin}}" max="{{inputMax}}"" type="number" ng-model="districts.val.v42"></td>
         </tr>
         <tr>
-            <td id="cell50"><input type="number" ng-model="districts.val.v50"></td>
-            <td id="cell51"><input type="number" ng-model="districts.val.v51"></td>
-            <td id="cell52"><input type="number" ng-model="districts.val.v52"></td>
+            <td id="cell50"><input min="{{inputMin}}" max="{{inputMax}}" type="number" ng-model="districts.val.v50"></td>
+            <td id="cell51"><input min="{{inputMin}}" max="{{inputMax}}" type="number" ng-model="districts.val.v51"></td>
+            <td id="cell52"><input min="{{inputMin}}" max="{{inputMax}}" type="number" ng-model="districts.val.v52"></td>
         </tr>
     </table>
 

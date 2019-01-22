@@ -7,9 +7,14 @@ myApp.controller('gerrymandController', ['$scope', function ($scope) {
   $scope.appVersion = '0.0.2';
 
   $scope.districts = {
+    valMin: 0,
+    valMax: 1,
     val: {},
     class: {}
   };
+
+  $scope.inputMin = $scope.districts.valMin;
+  $scope.inputMax = $scope.districts.valMax;
 
   // Create a array of array of numbers (2D array)
   // Uses the array map function, and the arrow notation
