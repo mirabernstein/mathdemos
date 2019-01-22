@@ -16,6 +16,9 @@
             font-size: 40px;
         }
 
+        .d0 {
+            background: whitesmoke;
+        }
         .d1 {
             background: greenyellow;
         }
@@ -29,46 +32,46 @@
             background: purple;
         }
         .d5 {
-            background: greenyellow;
-        }
-        .d6 {
             background: red;
+        }
+        .appVersion{
+            font-size:14px;
         }
     </style>
 </head>
 
 <body ng-app="gerrymandApp" ng-controller="gerrymandController" ng-cloak>
+    <h2>Gerrymandering Demo <span class="appVersion">v.{{appVersion}}</span></h2>
     <h3>My Districts</h3>
     <table id="districtinputtable">
         <tr>
+            <td id="cell00"><input type="number" ng-model="districts.val.v00"></td>
+            <td id="cell01"><input type="number" ng-model="districts.val.v01"></td>
+            <td id="cell02"><input type="number" ng-model="districts.val.v02"></td>
+        </tr>
+        <tr>
+            <td id="cell10"><input type="number" ng-model="districts.val.v10"></td>
             <td id="cell11"><input type="number" ng-model="districts.val.v11"></td>
             <td id="cell12"><input type="number" ng-model="districts.val.v12"></td>
-            <td id="cell13"><input type="number" ng-model="districts.val.v13"></td>
-        </tr>
         <tr>
+            <td id="cell20"><input type="number" ng-model="districts.val.v20"></td>
             <td id="cell21"><input type="number" ng-model="districts.val.v21"></td>
             <td id="cell22"><input type="number" ng-model="districts.val.v22"></td>
-            <td id="cell23"><input type="number" ng-model="districts.val.v23"></td>
         </tr>
         <tr>
+            <td id="cell30"><input type="number" ng-model="districts.val.v30"></td>
             <td id="cell31"><input type="number" ng-model="districts.val.v31"></td>
             <td id="cell32"><input type="number" ng-model="districts.val.v32"></td>
-            <td id="cell33"><input type="number" ng-model="districts.val.v33"></td>
         </tr>
         <tr>
+            <td id="cell40"><input type="number" ng-model="districts.val.v40"></td>
             <td id="cell41"><input type="number" ng-model="districts.val.v41"></td>
             <td id="cell42"><input type="number" ng-model="districts.val.v42"></td>
-            <td id="cell43"><input type="number" ng-model="districts.val.v43"></td>
         </tr>
         <tr>
+            <td id="cell50"><input type="number" ng-model="districts.val.v50"></td>
             <td id="cell51"><input type="number" ng-model="districts.val.v51"></td>
             <td id="cell52"><input type="number" ng-model="districts.val.v52"></td>
-            <td id="cell53"><input type="number" ng-model="districts.val.v53"></td>
-        </tr>
-        <tr>
-            <td id="cell61"><input type="number" ng-model="districts.val.v61"></td>
-            <td id="cell62"><input type="number" ng-model="districts.val.v62"></td>
-            <td id="cell63"><input type="number" ng-model="districts.val.v63"></td>
         </tr>
     </table>
 
@@ -77,34 +80,34 @@
 
     <table id="districttable1">
         <tr>
+            <td ng-class="districts.class.c00">{{districts.val.v00}}</td>
+            <td ng-class="districts.class.c01">{{districts.val.v01}}</td>
+            <td ng-class="districts.class.c02">{{districts.val.v02}}</td>
+        </tr>
+        <tr>
+            <td ng-class="districts.class.c10">{{districts.val.v10}}</td>
             <td ng-class="districts.class.c11">{{districts.val.v11}}</td>
             <td ng-class="districts.class.c12">{{districts.val.v12}}</td>
-            <td ng-class="districts.class.c13">{{districts.val.v13}}</td>
         </tr>
         <tr>
+            <td ng-class="districts.class.c20">{{districts.val.v20}}</td>
             <td ng-class="districts.class.c21">{{districts.val.v21}}</td>
             <td ng-class="districts.class.c22">{{districts.val.v22}}</td>
-            <td ng-class="districts.class.c23">{{districts.val.v23}}</td>
         </tr>
         <tr>
+            <td ng-class="districts.class.c30">{{districts.val.v30}}</td>
             <td ng-class="districts.class.c31">{{districts.val.v31}}</td>
             <td ng-class="districts.class.c32">{{districts.val.v32}}</td>
-            <td ng-class="districts.class.c33">{{districts.val.v33}}</td>
         </tr>
         <tr>
+            <td ng-class="districts.class.c40">{{districts.val.v40}}</td>
             <td ng-class="districts.class.c41">{{districts.val.v41}}</td>
             <td ng-class="districts.class.c42">{{districts.val.v42}}</td>
-            <td ng-class="districts.class.c43">{{districts.val.v43}}</td>
         </tr>
         <tr>
+            <td ng-class="districts.class.c50">{{districts.val.v50}}</td>
             <td ng-class="districts.class.c51">{{districts.val.v51}}</td>
             <td ng-class="districts.class.c52">{{districts.val.v52}}</td>
-            <td ng-class="districts.class.c53">{{districts.val.v53}}</td>
-        </tr>
-        <tr>
-            <td ng-class="districts.class.c61">{{districts.val.v61}}</td>
-            <td ng-class="districts.class.c62">{{districts.val.v62}}</td>
-            <td ng-class="districts.class.c63">{{districts.val.v63}}</td>
         </tr>
     </table>
 </body>
